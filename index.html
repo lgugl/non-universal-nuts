@@ -12,21 +12,17 @@
 </head>
 <body>
     <div class="row header">
-        <div class="medium-5 columns hide-for-small-only">
+        <div class="teasing-box medium-5 columns hide-for-small-only">
             <p class="teasing">The next step in customisation is coming...</p>
         </div>
-        <div class="small-2 medium-2 columns">
-            <span class="logo-box"><img class="logo" src="img/nun-logo-orange.png"></span>
+        <div class="logo-box small-2 medium-2 columns">
+            <span class="logo-parent"><img class="logo" src="img/nun-logo-orange.png"></span>
         </div>
-        <div class="small-10 medium-5 columns">
+        <div class="nav-box small-10 medium-5 columns">
             <ul class="main-nav">
                 <li class="about-us-btn">About us</li>
                 <li class="contact-btn">Contact</li>
             </ul>
-            <div class="social-links">
-                <img src="twitter">
-                <img src="facebook">
-            </div>
         </div>
     </div>
     <div class="content">
@@ -40,6 +36,10 @@
         
         <div class="info-box contact-box">
             <h2>Contact</h2>
+            <div class="social-links">
+                <a href="http://www.twitter.com"><img class="social-link twitter-btn" src="img/twitter-btn.png"></a>
+                <a href="http://www.facebook.com"><img class="social-link facebook-btn" src="img/facebook-btn.png"></a>
+            </div>
             <form class="contact-form">
                 <label for="contact-form-email">Email</label>
                 <input id="contact-form-email" type="text">
@@ -47,17 +47,13 @@
                 <input id="contact-form-subject" type="text">
                 <label for="contact-form-message">Message</label>
                 <textarea id="contact-form-message"></textarea>
+                <input id="contact-form-send" value="Send" name="send" type="submit">
             </form>
         </div>
         
-        <button class="prev-btn" onclick="bigPicture.prev();">Prev</button>
-        <button class="next-btn" onclick="bigPicture.next();">Next</button>
-        <ul class="bullet-points-nav" style="display:none">
-            <li>°</li>
-            <li>°</li>
-            <li>°</li>
-            <li>°</li>
-        </ul>
+        <button class="change-img-btn prev-btn" onclick="bigPicture.prev();">Prev</button>
+        <button class="change-img-btn next-btn" onclick="bigPicture.next();">Next</button>
+        <ul class="bullet-points-nav"><ul>
     </div>
     
     <script src="js/vendor/jquery.js"></script>

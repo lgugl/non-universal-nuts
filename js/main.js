@@ -1,3 +1,30 @@
+var bigPicturesList = ['photobck01.jpg', 'photobck02.jpg', 'photobck03.jpg', 'photobck04.jpg', 'photobck05.jpg', 'photobck06.jpg', 'photobck07.jpg', 'photobck08.jpg', 'photobck09.jpg', 'photobck10.jpg',];
+
+$.fn.loadImages = function() {
+    this.each(function(){
+        $('<img/>')[0].src = 'img/'+this;
+        console.log(this);
+    });
+}
+$(window).load(function(){
+    //$.loadImages(bigPicturesList);
+    bigPicturesList.forEach(function(element, index, array){
+        $('<img/>')[0].src = 'img/'+element;
+    });
+});
+
+// generate the bullet points nav
+bigPicturesList.forEach(function(element, index, array){
+    var bulletClass= index==0 ? "bullet-on":"";
+    $('.bullet-points-nav').append('<li class="'+bulletClass+' bullet-nav-'+(index+1)+'" onclick="bigPicture.goto('+(index+1)+')"></li>');
+});
+/*$.fn.loadImages = function() {
+    this.each(function(){
+        $('<img/>')[0].src = this;
+    });
+}
+$.loadImages(['your-image.png','your-image2.png','your-image3.png']);*/
+
 var bigPicture = {
 
     _idpict: 1,
@@ -6,15 +33,20 @@ var bigPicture = {
 
     prev: function(){
         var newId = this._idpict>1 ? this._idpict -1 : this._maxId;
-        $('.big-picture').removeClass(this._className+this._idpict).addClass(this._className+newId);
-        this.animateTransition();
-        this._idpict = newId;
+        this.goto(newId);
     },
 
     next: function(){
         var newId = this._idpict<this._maxId ? this._idpict +1 : 1;
+        this.goto(newId);
+    },
+                       
+    goto: function(i){
+        var newId = i;
         $('.big-picture').removeClass(this._className+this._idpict).addClass(this._className+newId);
         this.animateTransition();
+        $('.bullet-on').removeClass('bullet-on');
+        $('.bullet-nav-'+i).addClass('bullet-on');
         this._idpict = newId;
     },
 

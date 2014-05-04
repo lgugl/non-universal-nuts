@@ -3,18 +3,9 @@ body {
 }
 
 .header {
-    height: 150px;
+    height: 15%;
     position: relative;
-}
-
-.header:before{
-    content: "...";
-    width: 100%;
-    height 10px;
-    background: orange;
-    position: absolute;
-    left: 0;
-    top: 70px;
+    min-height: 100px;
 }
 
 .header .logo-box {
@@ -27,14 +18,26 @@ body {
     width: 100px;
 }
 
-.header .teasing {
+.header .teasing-box {
+    height: 100%;
     position: relative;
-    top: 100px;
+}
+
+.header .teasing {
+    position: absolute;
+    bottom: 10px;
+    margin: 0;
+}
+
+.header .nav-box {
+    position: relative;
+    height: 100%;
 }
 
 .header .main-nav {
     position: absolute;
-    top: 100px;
+    bottom: 10px;
+    margin: 0;
 }
 
 .header .main-nav > li {
@@ -44,15 +47,9 @@ body {
     padding: .25em 1em;
 }
 
-.header .social-links {
-    position: absolute;
-    right: 0;
-    top: 25px;
-}
-
 .content {
     position: relative;
-    height: 100%;
+    height: 85%;
 }
 
 .content .big-picture {
@@ -94,21 +91,53 @@ body {
     background-image: url("../img/photobck10.jpg");
 }
 
-.content .prev-btn {
+.content .change-img-btn {
     position: absolute;
+    width: 60px;
+    height: 100%;
+    top: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.content .change-img-btn:hover {
+    background-color: rgba(0,0,0,.5);
+}
+
+.content .prev-btn {
+    background: url("../img/arrow_prev.png") no-repeat center center;
     left: 0;
-    top: 100px;
 }
 
 .content .next-btn {
-    position: absolute;
+    background: url("../img/arrow_next.png") no-repeat center center;
     right: 0;
-    top: 100px;
 }
 
 .content .bullet-points-nav {
     position: absolute;
-    top: 100px;
+    bottom: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    width: 100%;
+}
+
+.content .bullet-points-nav > li {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: white;
+    display: inline-block;
+    margin: .25em;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.content .bullet-points-nav .bullet-on {
+    background: black;
+    border-color: white;
 }
 
 .info-box {
@@ -149,4 +178,20 @@ body {
 
 .info-box textarea {
     resize: vertical;
+}
+
+.contact-box .social-links {
+    margin: 1em 0;
+}
+
+.contact-box .social-link {
+    height: 30px;
+}
+
+.contact-form input[type="submit"] {
+    padding: .5em 1em;
+    background: white;
+    color: black;
+    border: 1px solid black;
+    float: right;
 }
