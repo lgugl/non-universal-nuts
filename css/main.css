@@ -57,6 +57,7 @@ body {
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     position: absolute;
 }
 
@@ -77,18 +78,6 @@ body {
 }
 .big-picture6{
     background-image: url("../img/photobck06.jpg");
-}
-.big-picture7{
-    background-image: url("../img/photobck07.jpg");
-}
-.big-picture8{
-    background-image: url("../img/photobck08.jpg");
-}
-.big-picture9{
-    background-image: url("../img/photobck09.jpg");
-}
-.big-picture10{
-    background-image: url("../img/photobck10.jpg");
 }
 
 .content .change-img-btn {
