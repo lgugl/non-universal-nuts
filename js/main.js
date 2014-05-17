@@ -50,10 +50,22 @@ var bigPicture = {
 
 $('.about-us-btn').on('click', function() {
     $('.contact-box').hide();
-    $('.about-us-box').toggle();
+    $('.about-us-box').fadeToggle();
+    $('.teasing-box').hide();
 });
 
 $('.contact-btn').on('click', function() {
     $('.about-us-box').hide();
-    $('.contact-box').toggle();
+    $('.contact-box').fadeToggle();
+    $('.teasing-box').hide();
 });
+
+var teasingDisplay = function(){
+    if($('.info-box:visible')) {
+        console.log('A');
+        $('.teasing-box').hide();
+    } else {
+        console.log('B');
+        $('.teasing-box').show();
+    }
+}
