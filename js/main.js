@@ -1,21 +1,10 @@
+// pictures list
 var bigPicturesList = ['photobck01.jpg', 'photobck02.jpg', 'photobck03.jpg', 'photobck04.jpg', 'photobck05.jpg', 'photobck06.jpg'];
 
-$(window).load(function(){
-    //$.loadImages(bigPicturesList);
-    bigPicturesList.forEach(function(element, index, array){
-        $('<img/>')[0].src = 'img/'+element;
-    });
-});
-
-// generate the bullet points nav
-bigPicturesList.forEach(function(element, index, array){
-    var bulletClass= index==0 ? "bullet-on":"";
-    $('.bullet-points-nav').append('<li class="'+bulletClass+' bullet-nav-'+(index+1)+'" onclick="bigPicture.goto('+(index+1)+')"></li>');
-});
-
+// pictures engine
 var bigPicture = {
 
-    _idpict: 1,
+    _idpict: 1,//actual picture
     _className: 'big-picture',
     _maxId: bigPicturesList.length,
 
@@ -31,7 +20,7 @@ var bigPicture = {
                        
     goto: function(i){
         var newId = i;
-        $('.big-picture').removeClass(this._className+this._idpict).addClass(this._className+newId);
+        $('.'+this._className).removeClass(this._className+this._idpict).addClass(this._className+newId);
         this.animateTransition();
         $('.bullet-on').removeClass('bullet-on');
         $('.bullet-nav-'+i).addClass('bullet-on');
@@ -39,7 +28,7 @@ var bigPicture = {
     },
 
     animateTransition: function(){
-        $('.big-picture')
+        $('.'+this._className)
             .stop()
             .css('opacity', 0)
             .animate({
@@ -48,24 +37,68 @@ var bigPicture = {
     }
 };
 
+// preload pictures ?
+$(window).load(function(){
+    //$.loadImages(bigPicturesList);
+    bigPicturesList.forEach(function(element, index, array){
+        $('<img/>')[0].src = 'img/'+element;
+    });
+});
+
+// generate the bullet points nav
+bigPicturesList.forEach(function(element, index, array){
+    var bulletClass= index==0 ? "bullet-on":"";
+    $('.bullet-points-nav').append('<li class="'+bulletClass+' bullet-nav-'+(index+1)+'" onclick="bigPicture.goto('+(index+1)+')"></li>');
+});
+
+// go to next big picture all 10s
+var nextBPInterval = setInterval("bigPicture.next()", 10000);
+
+// about & contact menu
 $('.about-us-btn').on('click', function() {
     $('.contact-box').hide();
     $('.about-us-box').fadeToggle();
     $('.teasing-box').hide();
 });
-
 $('.contact-btn').on('click', function() {
     $('.about-us-box').hide();
+    $('.contact-form').show();
+    $('.message-ok').remove();
     $('.contact-box').fadeToggle();
     $('.teasing-box').hide();
 });
 
-var teasingDisplay = function(){
-    if($('.info-box:visible')) {
-        console.log('A');
-        $('.teasing-box').hide();
-    } else {
-        console.log('B');
-        $('.teasing-box').show();
+// send message
+var sendMessage = {
+    
+    _sending: false,
+    
+    send: function() {
+        if(!sendMessage._sending) {
+            var email = $('#contact-form-email').val();
+            var subject = $('#contact-form-subject').val();
+            var message = $('#contact-form-message').val();
+            console.log(email, subject, message);
+            $.ajax({
+                url: 'controller.php?action=send_msg',
+                method: 'POST',
+                data: 'email='+email+'&subject='+subject+'&message='+message,
+                beforeSend: function() {
+                    sendMessage._sending = true;
+                },
+                complete: function() {
+                    sendMessage._sending = false;
+                },
+                success: function() {
+                    $('.contact-form').hide();
+                    $('.contact-box').append('<p class="info-box-catch-txt message-ok">Message sent successfully!</p>');
+                }
+            });
+        }
     }
+    
 }
+
+$("#contact-form").submit(function(){
+    sendMessage.send();
+});
