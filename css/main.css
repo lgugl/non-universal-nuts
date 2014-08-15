@@ -2,9 +2,9 @@
     font-family: 'kalinga';
     src: url('../fonts/kalinga-webfont.eot');
     src: url('../fonts/kalinga-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/kalinga-webfont.svg#kalinga') format('svg'),
          url('../fonts/kalinga-webfont.woff') format('woff'),
-         url('../fonts/kalinga-webfont.ttf') format('truetype'),
-         url('../fonts/kalinga-webfont.svg#kalinga') format('svg');
+         url('../fonts/kalinga-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -189,7 +189,7 @@ body {
     color: white;
     display: none;
     padding: 1em;
-    z-index: 1;
+    z-index: 2;
     position: absolute;
     left: 50%;
     top: 0;
@@ -298,7 +298,7 @@ body {
 }
 
 @media screen and (max-width: 420px) {
-    .header .main-nav-btn-txt {
-        font-size: 18px;
+    body {
+        width: 420px;
     }
 }
