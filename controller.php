@@ -29,10 +29,6 @@ else if($http_request['action']=='send_msg')
         $headers = 'From: ' . $email . "\r\n" .
         'Reply-To: ' . $email . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
-        
-        echo "<p>$subject</p>";
-        echo "<p>$message</p>";
-        echo "<p>$headers</p>";
 
         $result = mail($to, $subject, $message, $headers);
         
