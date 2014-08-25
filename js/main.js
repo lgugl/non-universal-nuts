@@ -54,19 +54,40 @@ bigPicturesList.forEach(function(element, index, array){
 // go to next big picture all 10s
 var nextBPInterval = setInterval("bigPicture.next()", 10000);
 
-// about & contact menu
-$('.about-us-btn').on('click', function() {
-    $('.contact-box').hide();
-    $('.about-us-box').fadeToggle();
-    $('.teasing-box').hide();
-});
-$('.contact-btn').on('click', function() {
-    $('.about-us-box').hide();
+
+// menu
+var aPanels = ['teasing', 'about-us', 'contact', 'products'];
+var currentPanel = 0;
+function changePanelTo(idPanel) {
+    
+    // for contact panel
     $('.contact-form').show();
     $('.message-ok').remove();
-    $('.contact-box').fadeToggle();
-    $('.teasing-box').hide();
+    
+    if(idPanel == currentPanel) {
+        // click on current panel, hide it
+        $('.' + aPanels[idPanel] + '-box').fadeOut(1000);
+        // then show again the teasing panel
+        $('.' + aPanels[0] + '-box').fadeIn(1000);
+        currentPanel = 0;
+    }
+    else {
+        $('.' + aPanels[0] + '-box').hide();
+        $('.' + aPanels[currentPanel] + '-box').fadeOut(1000);
+        $('.' + aPanels[idPanel] + '-box').fadeIn(1000);
+        currentPanel = idPanel;
+    }
+}
+$('.about-us-btn').on('click', function() {
+    changePanelTo(1);
 });
+$('.contact-btn').on('click', function() {
+    changePanelTo(2);
+});
+$('.products-btn').on('click', function() {
+    changePanelTo(3);
+});
+
 
 // send message
 var sendMessage = {
@@ -89,9 +110,18 @@ var sendMessage = {
                 complete: function() {
                     sendMessage._sending = false;
                 },
-                success: function() {
+                success: function(result) {
                     $('.contact-form').hide();
-                    $('.contact-box').append('<p class="info-box-catch-txt message-ok">Message sent successfully!</p>');
+                    if(result == 'ok') {
+                        $('.contact-box').append('<p class="info-box-catch-txt message-ok">Message sent successfully!</p>');
+                    }
+                    else {
+                        $('.contact-box').append('<p class="info-box-catch-txt message-ok">An error occurred!</p>');
+                    }
+                },
+                error: function() {
+                    $('.contact-form').hide();
+                    $('.contact-box').append('<p class="info-box-catch-txt message-ok">An error occurred!</p>');
                 }
             });
         }
