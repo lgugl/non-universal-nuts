@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteRule rollerskate /rollerskate.html
+RewriteRule skateboard /skateboard.html
+#Rewritecond %{HTTP_HOST} ^nonuniversalnuts.com$
+#Rewriterule ^(.*) http://www.nonuniversalnuts.com/$1 [QSA,L,R=301]
