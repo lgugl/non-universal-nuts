@@ -1,5 +1,4 @@
-// pictures list
-var bigPicturesList = ['photobck01.jpg', 'photobck02.jpg', 'photobck03.jpg', 'photobck04.jpg', 'photobck05.jpg', 'photobck06.jpg'];
+if(!bigPicturesList) var bigPicturesList = [];
 
 // pictures engine
 var bigPicture = {
@@ -17,7 +16,7 @@ var bigPicture = {
         var newId = this._idpict<this._maxId ? this._idpict +1 : 1;
         this.goto(newId);
     },
-                       
+
     goto: function(i){
         var newId = i;
         $('.'+this._className).removeClass(this._className+this._idpict).addClass(this._className+newId);
@@ -56,44 +55,50 @@ var nextBPInterval = setInterval("bigPicture.next()", 10000);
 
 
 // menu
-var aPanels = ['teasing', 'about-us', 'contact', 'products'];
+var aPanels = ['teasing', 'about-us', 'products', 'store', 'contact', 'press'];
 var currentPanel = 0;
 function changePanelTo(idPanel) {
-    
+
     // for contact panel
     $('.contact-form').show();
     $('.message-ok').remove();
-    
+
     if(idPanel == currentPanel) {
         // click on current panel, hide it
-        $('.' + aPanels[idPanel] + '-box').fadeOut(1000);
+        $('.' + aPanels[idPanel] + '-box').fadeOut(500);
         // then show again the teasing panel
-        $('.' + aPanels[0] + '-box').fadeIn(1000);
+        $('.' + aPanels[0] + '-box').fadeIn(500);
         currentPanel = 0;
     }
     else {
         $('.' + aPanels[0] + '-box').hide();
-        $('.' + aPanels[currentPanel] + '-box').fadeOut(1000);
-        $('.' + aPanels[idPanel] + '-box').fadeIn(1000);
+        $('.' + aPanels[currentPanel] + '-box').fadeOut(500);
+        $('.' + aPanels[idPanel] + '-box').fadeIn(500);
         currentPanel = idPanel;
     }
 }
 $('.about-us-btn').on('click', function() {
     changePanelTo(1);
 });
-$('.contact-btn').on('click', function() {
+$('.products-btn').on('click', function() {
     changePanelTo(2);
 });
-$('.products-btn').on('click', function() {
+$('.store-btn').on('click', function() {
     changePanelTo(3);
+});
+$('.contact-btn').on('click', function() {
+    changePanelTo(4);
+});
+$('.press-btn').on('click', function() {
+    changePanelTo(5);
 });
 
 
 // send message
 var sendMessage = {
-    
+
     _sending: false,
-    
+
     send: function() {
         if(!sendMessage._sending) {
             var email = $('#contact-form-email').val();
@@ -126,7 +131,7 @@ var sendMessage = {
             });
         }
     }
-    
+
 }
 
 $("#contact-form").submit(function(){
