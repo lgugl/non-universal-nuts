@@ -1,0 +1,71 @@
+extends ./_layout.jade
+
+block title
+  | Rollerskate
+
+block pageId
+  - var pageId = "rollerskate"
+
+block content
+  include ./_menu.jade
+  .content
+
+    .big-picture.big-picture1
+
+    .teasing-box
+      p.teasing-txt Taking customization to the next level
+      hr.teasing-hr
+      p.teasing-txt Coming in 2015
+
+    .info-box.about-us-box
+      h2 About us
+      p.info-box-catch-txt NUN - NON UNIVERSAL NUTS<br/>TAKING CUSTOMIZATION TO THE NEXT LEVEL
+      p After years of practicing action sports, at NUN we understood that it's not only doing the best trick, it's reading your spot to find a DIFFERENT way to ride it, a BETTER way to ride it.
+      p DIFFERENT IS WHAT WE ARE
+      p We are looking for riding different and better everyday. What about my snowboard, my skateboard or my skates? At NUN we want our stuff to look as we ride: different and better. Because it’s not enough to match caps and shoes we have developed specific screws with a lot of design and graphics in order to be different and look better.
+      p Our first product designed for Longboards, Cruisers and Roller Skates receives positive feedback daily from shops, skaters and roller derby teams who are really excited about having in their hands a good looking, great and innovative product. At NUN, being supported by people who share our passion encourage us to offer you the best product in 2015.
+      p Stay tuned, Philippe
+
+    .info-box.products-box
+      h2 Products
+      p
+        img(src="img/under-construction.png", alt="under construction")
+
+    .info-box.store-box
+      h2 Store
+      p Store available in February 2015.
+
+    .info-box.contact-box
+      h2 Contact
+      .social-links
+        a(href="http://www.twitter.com")
+          img.social-link.twitter-btn(src="img/twitter-btn.png")
+        a(href="http://www.facebook.com/nonuniversalnuts")
+          img.social-link.facebook-btn(src="img/facebook-btn.png")
+      form#contact-form.contact-form(action="javascript:void(0);")
+        label(for="contact-form-email") Email
+        input#contact-form-email(type="email", placeholder="xxx@xxxx.xxx", required)
+        label(for="contact-form-subject") Subject
+        input#contact-form-subject(type="text", required)
+        label(for="contact-form-message") Message
+        textarea#contact-form-message(rows="12", required)
+        input#contact-form-send(value="Send", name="send", type="submit")
+
+    .info-box.press-box
+      h2 Press
+      ul
+        li
+          | A simple example<br/>
+          a(href="", target="_blank") go to external source
+        li
+          | A simple example<br/>
+          a(href="", target="_blank") go to external source
+
+    button.change-img-btn.prev-btn(onclick="bigPicture.prev();") Prev
+    button.change-img-btn.next-btn(onclick="bigPicture.next();") Next
+    ul.bullet-points-nav
+
+block script
+  script(src="js/jquery-2.1.3.min.js")
+  script(src="js/config-rollerskate.js")
+  script(src="js/nun.js")
