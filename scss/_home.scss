@@ -1,0 +1,63 @@
+#home {
+
+  .content {
+    position: relative;
+    height: 100%;
+  }
+
+  .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -150px;
+    z-index: 10;
+  }
+
+  %link-access {
+    display: block;
+    width: 50%;
+    height: 100%;
+    float: left;
+    transition: all .5s;
+    text-align: center;
+
+    &:hover {
+      background-position: -20px;
+
+      .title {
+        width: calc(50% + 20px);
+        padding: 20px 0;
+        margin-top: 65px;
+      }
+    }
+
+    &.fx {
+      filter: grayscale(100%);
+    }
+
+    .title {
+      background: rgba(0,0,0,.7);
+      padding: 10px 0;
+      width: 50%;
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 30px;
+      color: white;
+      margin-top: 75px;
+      transition: all .5s;
+    }
+  }
+
+  .rollerskate {
+    @extend %link-access;
+    background: url('../img/home-picture-rollerskate.jpg') center no-repeat;
+    background-size: cover;
+  }
+
+  .skateboard {
+    @extend %link-access;
+    background: url('../img/home-picture-skateboard.jpg') center no-repeat;
+    background-size: cover;
+  }
+}

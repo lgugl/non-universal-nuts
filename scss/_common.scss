@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'kalinga';
+  src: url('../fonts/kalinga-webfont.eot');
+  src: url('../fonts/kalinga-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/kalinga-webfont.svg#kalinga') format('svg'),
+       url('../fonts/kalinga-webfont.woff') format('woff'),
+       url('../fonts/kalinga-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+//*,
+//*:before,
+//*:after {
+//  box-sizing: border-box;
+//}
+
+//html {
+//  height: 100%;
+//}
+
+body {
+  margin: 0;
+  font-family: 'kalinga', 'Arial', sans-serif;
+  font-size: 10px;
+  color: black;
+  background: black;
+//  height: 100%;
+}
+
+//img {
+//  max-width: 100%;
+//}
