@@ -3,8 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nun |Rollerskate</title>
-    <link rel="stylesheet" href="css/foundation.min.css">
+    <title>Nun | Rollerskate</title>
     <link rel="stylesheet" href="css/nun.css">
   </head>
   <body id="rollerskate">
@@ -43,14 +42,31 @@
       </div>
       <div class="info-box contact-box">
         <h2>Contact</h2>
-        <div class="social-links"><a href="http://www.twitter.com"><img src="img/twitter-btn.png" class="social-link twitter-btn"></a><a href="http://www.facebook.com/nonuniversalnuts"><img src="img/facebook-btn.png" class="social-link facebook-btn"></a></div>
+        <div class="social-links"><a href="http://www.facebook.com/NUNrollerskates" title="Facebook" target="_blank"><img src="img/facebook-btn.png" class="social-link facebook-btn"></a><a href="https://twitter.com/NUN_RollerSkate" title="Twitter" target="_blank"><img src="img/twitter-btn.png" class="social-link twitter-btn"></a><a href="http://instagram.com/nun_rollerskates/" title="Instagram" target="_blank"><img src="img/instagram-btn.png" class="social-link instagram-btn"></a></div>
         <form id="contact-form" action="javascript:void(0);" class="contact-form">
+          <label for="contact-form-interest">Interesting in</label>
+          <select id="contact-form-interest" name="contact-form-interest" required>
+            <option> </option>
+            <option>General informations</option>
+            <option>Standard NUN</option>
+            <option>Customized NUN</option>
+          </select>
+          <label for="contact-form-areyou">Are you?</label>
+          <select id="contact-form-areyou" name="contact-form-areyou" required>
+            <option> </option>
+            <option>Retailer</option>
+            <option>Distributor</option>
+            <option>Manufacturer</option>
+            <option>Private person</option>
+            <option>Derby Team</option>
+            <option>Other</option>
+          </select>
           <label for="contact-form-email">Email</label>
           <input id="contact-form-email" type="email" placeholder="xxx@xxxx.xxx" required>
           <label for="contact-form-subject">Subject</label>
           <input id="contact-form-subject" type="text" required>
           <label for="contact-form-message">Message</label>
-          <textarea id="contact-form-message" rows="12" required></textarea>
+          <textarea id="contact-form-message" rows="6" required></textarea>
           <input id="contact-form-send" value="Send" name="send" type="submit">
         </form>
       </div>

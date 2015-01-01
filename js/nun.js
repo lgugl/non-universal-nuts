@@ -101,14 +101,17 @@ var sendMessage = {
 
     send: function() {
         if(!sendMessage._sending) {
-            var email = $('#contact-form-email').val();
-            var subject = $('#contact-form-subject').val();
-            var message = $('#contact-form-message').val();
-            console.log(email, subject, message);
+            var data = {
+                interest: $('#contact-form-interest').val(),
+                areyou: $('#contact-form-areyou').val(),
+                email: $('#contact-form-email').val(),
+                subject: $('#contact-form-subject').val(),
+                message: $('#contact-form-message').val(),
+            };
             $.ajax({
                 url: 'controller.php?action=send_msg',
                 method: 'POST',
-                data: 'email='+email+'&subject='+subject+'&message='+message,
+                data: data,
                 beforeSend: function() {
                     sendMessage._sending = true;
                 },

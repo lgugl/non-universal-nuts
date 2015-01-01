@@ -11,16 +11,26 @@ if(!isset($http_request['action']))
 //----------------------------------------------------------------------------------------
 else if($http_request['action']=='send_msg')
 {
-    if(isset($http_request['email']) && isset($http_request['subject']) && isset($http_request['message']))
+    if(isset($http_request['interest'])
+        && isset($hettp_request['areyou'])
+        && isset($http_request['email']) 
+        && isset($http_request['subject']) 
+        && isset($http_request['message']))
     {
         $oTools = new Tools;
         
+        $interest = $oTools->sanitize($http_request['interest']);
+        $areyou = $oTools->sanitize($http_request['areyou']);
         $to = 'philippe@nonuniversalnuts.com';
         //$to = 'loic.guglielmino@gmail.com';
         $email = $oTools->sanitize($http_request['email']);
         $subject = "Message from Nun: " . $oTools->sanitize($http_request['subject']);
         $message = 
-            "From: " . $email
+            "Interesting in: " . $interest
+            . "\r\n\r\n"
+            . "Are you: " . $areyou
+            . "\r\n\r\n"
+            . "From: " . $email
             . "\r\n\r\n"
             . "Subject: " . $http_request['subject'] 
             . "\r\n\r\n"

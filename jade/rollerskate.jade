@@ -38,17 +38,34 @@ block content
     .info-box.contact-box
       h2 Contact
       .social-links
-        a(href="http://www.twitter.com")
-          img.social-link.twitter-btn(src="img/twitter-btn.png")
-        a(href="http://www.facebook.com/nonuniversalnuts")
+        a(href="http://www.facebook.com/NUNrollerskates", title="Facebook", target="_blank")
           img.social-link.facebook-btn(src="img/facebook-btn.png")
+        a(href="https://twitter.com/NUN_RollerSkate", title="Twitter", target="_blank")
+          img.social-link.twitter-btn(src="img/twitter-btn.png")
+        a(href="http://instagram.com/nun_rollerskates/", title="Instagram", target="_blank")
+          img.social-link.instagram-btn(src="img/instagram-btn.png")
       form#contact-form.contact-form(action="javascript:void(0);")
+        label(for="contact-form-interest") Interesting in
+        select(id="contact-form-interest", name="contact-form-interest", required)
+          option 
+          option General informations
+          option Standard NUN
+          option Customized NUN
+        label(for="contact-form-areyou") Are you?
+        select(id="contact-form-areyou", name="contact-form-areyou", required)
+          option 
+          option Retailer
+          option Distributor
+          option Manufacturer
+          option Private person
+          option Derby Team
+          option Other
         label(for="contact-form-email") Email
         input#contact-form-email(type="email", placeholder="xxx@xxxx.xxx", required)
         label(for="contact-form-subject") Subject
         input#contact-form-subject(type="text", required)
         label(for="contact-form-message") Message
-        textarea#contact-form-message(rows="12", required)
+        textarea#contact-form-message(rows="6", required)
         input#contact-form-send(value="Send", name="send", type="submit")
 
     .info-box.press-box
