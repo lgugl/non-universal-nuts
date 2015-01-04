@@ -10,7 +10,7 @@ block content
   include ./_menu.jade
   .content
 
-    .big-picture.big-picture1
+    .big-picture
 
     .teasing-box
       p.teasing-txt Taking customization to the next level
@@ -26,10 +26,24 @@ block content
       p Our first product designed for Longboards, Cruisers and Roller Skates receives positive feedback daily from shops, skaters and roller derby teams who are really excited about having in their hands a good looking, great and innovative product. At NUN, being supported by people who share our passion encourage us to offer you the best product in 2015.
       p Stay tuned, Philippe
 
-    .info-box.products-box
-      h2 Products
-      p
-        img(src="img/under-construction.png", alt="under construction")
+    .info-box-large-wrapper
+      .info-box.large.products-box
+          h2 Products
+          p
+            a(href="#features") Product Features | 
+            a(href="#standard") Standard NUN | 
+            a(href="#marketing") NUN for Marketing | 
+            a(href="#derby-team-pack") Derby team pack 
+          p#features
+            img(src="img/products-roller-slice-01.jpg")
+          p#standard
+            img(src="img/products-roller-slice-02.jpg")
+          p#marketing
+            img(src="img/products-roller-slice-03.jpg")
+          p#derby-team-pack
+            | DERBY TEAM PACK
+          p
+            | NUN fully support Roller Derby and want teams to increase their income and have a unique feature to represent their team. So we have created a special Derby Team offer. Stay tuned!
 
     .info-box.store-box
       h2 Store

@@ -1,29 +1,31 @@
-if(!bigPicturesList) var bigPicturesList = [];
+if(!bigPictureList) var bigPictureList = [];
 
 // pictures engine
 var bigPicture = {
 
-    _idpict: 1,//actual picture
-    _className: 'big-picture',
-    _maxId: bigPicturesList.length,
+    _idpict: 0,//current picture
+    _maxId: bigPictureList.length -1,
+  
+    init: function(){
+      $('.big-picture').css('backgroundImage', 'url("../img/' + bigPictureList[this._idpict] + '")');
+    },
 
     prev: function(){
-        var newId = this._idpict>1 ? this._idpict -1 : this._maxId;
+        var newId = this._idpict ? this._idpict -1 : this._maxId;
         this.goto(newId);
     },
 
     next: function(){
-        var newId = this._idpict<this._maxId ? this._idpict +1 : 1;
+        var newId = this._idpict<this._maxId ? this._idpict +1 : 0;
         this.goto(newId);
     },
 
-    goto: function(i){
-        var newId = i;
-        $('.'+this._className).removeClass(this._className+this._idpict).addClass(this._className+newId);
+    goto: function(id){
+        $('.big-picture').css('backgroundImage', 'url("../img/' + bigPictureList[id] + '")');
         this.animateTransition();
         $('.bullet-on').removeClass('bullet-on');
-        $('.bullet-nav-'+i).addClass('bullet-on');
-        this._idpict = newId;
+        $('.bullet-nav-'+id).addClass('bullet-on');
+        this._idpict = id;
     },
 
     animateTransition: function(){
@@ -36,18 +38,21 @@ var bigPicture = {
     }
 };
 
-// preload pictures ?
+// init first picture
+bigPicture.init();
+
+// preload pictures (works?)
 $(window).load(function(){
-    //$.loadImages(bigPicturesList);
-    bigPicturesList.forEach(function(element, index, array){
+    //$.loadImages(bigPictureList);
+    bigPictureList.forEach(function(element, index, array){
         $('<img/>')[0].src = 'img/'+element;
     });
 });
 
 // generate the bullet points nav
-bigPicturesList.forEach(function(element, index, array){
+bigPictureList.forEach(function(element, index, array){
     var bulletClass= index==0 ? "bullet-on":"";
-    $('.bullet-points-nav').append('<li class="'+bulletClass+' bullet-nav-'+(index+1)+'" onclick="bigPicture.goto('+(index+1)+')"></li>');
+    $('.bullet-points-nav').append('<li class="' + bulletClass + ' bullet-nav-' + index + '" onclick="bigPicture.goto(' + index + ')"></li>');
 });
 
 // go to next big picture all 10s

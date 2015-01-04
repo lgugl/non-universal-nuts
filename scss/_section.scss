@@ -16,6 +16,11 @@
   }
 
   .header .logo {
+    transition: transform .5s;
+    
+    &:hover {
+      transform: rotate(360deg);
+    }
   }
 
   .header .main-nav {
@@ -65,25 +70,6 @@
       background-size: cover;
       background-position: center;
       position: absolute;
-  }
-
-  .big-picture1{
-      background-image: url("../img/photobck01.jpg");
-  }
-  .big-picture2{
-      background-image: url("../img/photobck02.jpg");
-  }
-  .big-picture3{
-      background-image: url("../img/photobck03.jpg");
-  }
-  .big-picture4{
-      background-image: url("../img/photobck04.jpg");
-  }
-  .big-picture5{
-      background-image: url("../img/photobck05.jpg");
-  }
-  .big-picture6{
-      background-image: url("../img/photobck06.jpg");
   }
 
   .content .change-img-btn {
@@ -177,13 +163,31 @@
       color: white;
       display: none;
       padding: 1em;
-      z-index: 2;
+      z-index: 3;
       position: absolute;
       left: 50%;
       top: 0;
       width: 400px;
       height: 100%;
       text-align: justify;
+    overflow: auto;
+  }
+  
+  .info-box-large-wrapper {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    
+    .info-box.large {
+      position: initial;
+      margin: auto;
+      width: auto;
+      max-width: 800px;
+      height: 100%;
+      pointer-events: auto;
+    }
   }
 
   .info-box > h2 {
@@ -208,6 +212,10 @@
 
   .info-box textarea {
       resize: vertical;
+  }
+  
+  .products-box {
+    
   }
 
   .contact-box .social-links {
