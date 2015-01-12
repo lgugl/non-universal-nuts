@@ -1,2 +1,2 @@
 // picture list
-var bigPictureList = ['photobck04.jpg', 'photobck05.jpg', 'photobck06.jpg'];
+var bigPictureList = ['photobck-skate01.jpg', 'photobck-skate02.jpg', 'photobck-skate03.jpg', 'photobck-skate04.jpg', 'photobck-skate05.jpg'];
