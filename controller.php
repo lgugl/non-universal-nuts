@@ -12,7 +12,7 @@ if(!isset($http_request['action']))
 else if($http_request['action']=='send_msg')
 {
     if(isset($http_request['interest'])
-        && isset($hettp_request['areyou'])
+        && isset($http_request['areyou'])
         && isset($http_request['email']) 
         && isset($http_request['subject']) 
         && isset($http_request['message']))
@@ -22,7 +22,7 @@ else if($http_request['action']=='send_msg')
         $interest = $oTools->sanitize($http_request['interest']);
         $areyou = $oTools->sanitize($http_request['areyou']);
         $to = 'philippe@nonuniversalnuts.com';
-        //$to = 'loic.guglielmino@gmail.com';
+//        $to = 'loic.guglielmino@gmail.com';
         $email = $oTools->sanitize($http_request['email']);
         $subject = "Message from Nun: " . $oTools->sanitize($http_request['subject']);
         $message = 
