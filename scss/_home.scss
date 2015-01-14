@@ -49,15 +49,15 @@
     }
   }
 
-  .rollerskate {
+  .rollerskates {
     @extend %link-access;
-    background: url('../img/home-picture-rollerskate.jpg') center no-repeat;
+    background: url('../img/home-picture-rollerskates.jpg') center no-repeat;
     background-size: cover;
   }
 
-  .skateboard {
+  .skateboards {
     @extend %link-access;
-    background: url('../img/home-picture-skateboard.jpg') center no-repeat;
+    background: url('../img/home-picture-skateboards.jpg') center no-repeat;
     background-size: cover;
   }
 }
