@@ -60,7 +60,7 @@ var nextBPInterval = setInterval("bigPicture.next()", 10000);
 
 
 // menu
-var aPanels = ['teasing', 'about-us', 'products', 'store', 'contact', 'press'];
+var aPanels = ['teasing', 'about-us', 'products', 'contact', 'press'];
 var currentPanel = 0;
 function changePanelTo(idPanel) {
 
@@ -89,13 +89,13 @@ $('.products-btn').on('click', function() {
     changePanelTo(2);
 });
 $('.store-btn').on('click', function() {
-    changePanelTo(3);
+    window.open('http://shop.nonuniversalnuts.com', '_blank');
 });
 $('.contact-btn').on('click', function() {
-    changePanelTo(4);
+    changePanelTo(3);
 });
 $('.press-btn').on('click', function() {
-    changePanelTo(5);
+    changePanelTo(4);
 });
 
 

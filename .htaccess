@@ -2,4 +2,4 @@
 Options +FollowSymLinks -Multiviews
 #Mod Rewrite
 RewriteEngine On
-RewriteRule ^([^\.]+)$ $1.html [NC,L]
+RewriteRule ^([^\.]+)$ /$1.html [NC,L]
