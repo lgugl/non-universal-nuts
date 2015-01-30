@@ -1,6 +1,5 @@
 #Fix Rewrite
 Options +FollowSymLinks -Multiviews
 #Mod Rewrite
-RewriteBase /
 RewriteEngine On
 RewriteRule ^([^\.]+)$ /$1.html [NC,L]
